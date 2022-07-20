@@ -9,11 +9,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    int days = 30;
+    String name = "code ninja";
+
     return MaterialApp(
         home: Material(
             child: Center(
       child: Container(
-        child: Text("welcome to flutter first project"),
+        child: Text("welcome to flutter $days days project by $name"),
       ),
     )));
   }
