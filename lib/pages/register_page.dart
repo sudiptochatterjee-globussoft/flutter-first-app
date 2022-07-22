@@ -1,11 +1,10 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:flutter_application_one/utils/routes.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 
-class LoginPage extends StatelessWidget {
-  const LoginPage({Key? key}) : super(key: key);
+class RegisterPage extends StatelessWidget {
+  const RegisterPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +17,8 @@ class LoginPage extends StatelessWidget {
               Container(
                 margin: const EdgeInsets.only(top: 30.0),
                 child: Image.asset(
-                  "assets/images/login_image.png",
+                  "assets/images/register.png",
+                  height: 300,
                   fit: BoxFit.cover,
                 ),
               ),
@@ -26,7 +26,7 @@ class LoginPage extends StatelessWidget {
                 height: 20.0,
               ),
               Text(
-                "Login",
+                "Register",
                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               ),
               SizedBox(
@@ -43,32 +43,29 @@ class LoginPage extends StatelessWidget {
                           hintText: "Enter username", labelText: "Username"),
                     ),
                     TextFormField(
+                      decoration: const InputDecoration(
+                          hintText: "Enter email", labelText: "Email"),
+                    ),
+                    TextFormField(
+                      decoration: const InputDecoration(
+                          hintText: "Enter password", labelText: "Password"),
+                    ),
+                    TextFormField(
                       obscureText: true,
                       decoration: InputDecoration(
-                          hintText: "Enter password", labelText: "Password"),
+                          hintText: "Enter confirm password",
+                          labelText: "Confirm Password"),
                     ),
                     SizedBox(
                       height: 40.0,
                     ),
                     ElevatedButton(
                       onPressed: () {
-                        Navigator.pushNamed(context, MyRoutes.homeRoute);
+                        print("clicked login");
                       },
                       style: TextButton.styleFrom(minimumSize: Size(150, 40)),
-                      child: Text("Login"),
-                    ),
-                    SizedBox(
-                      height: 10.0,
-                    ),
-                    TextButton(
-                      onPressed: () {
-                        Navigator.pushNamed(context, '/register');
-                      },
-                      child: Text(
-                        'Register', //title
-                        textAlign: TextAlign.center, //aligment
-                      ),
-                    ),
+                      child: Text("Register"),
+                    )
                   ],
                 ),
               )
