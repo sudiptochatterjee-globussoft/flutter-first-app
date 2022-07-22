@@ -21,8 +21,11 @@ class MyApp extends StatelessWidget {
           fontFamily: GoogleFonts.lato().fontFamily),
       darkTheme: ThemeData(brightness: Brightness.dark),
       //initialRoute: "/home",
+      debugShowCheckedModeBanner: false,
+
       routes: {
-        MyRoutes.defaultRoute: (context) => LoginPage(),
+        MyRoutes.defaultRoute: (context) =>
+            HomePage(), //set for dev default login
         MyRoutes.loginRoute: (context) => LoginPage(),
         MyRoutes.registerRoute: (context) => RegisterPage(),
         MyRoutes.homeRoute: (context) => HomePage(),
