@@ -11,7 +11,9 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Welcome flutter"),
+        title: Text(
+          "Catlog App",
+        ),
       ),
       body: Center(
         child: Container(
