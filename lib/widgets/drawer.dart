@@ -22,6 +22,7 @@ class MyDrawer extends StatelessWidget {
                   accountName: Text("sudipto chatterjee"),
                   accountEmail: Text("sudiptochatterjee@globussoft.in"),
                   currentAccountPicture: CircleAvatar(
+                    radius: 100.0,
                     backgroundImage: NetworkImage(
                         "https://avatars.githubusercontent.com/u/60606550?v=4"), //AssetImage("assets/images/user_img.png"),
                   )
