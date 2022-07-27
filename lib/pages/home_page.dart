@@ -45,18 +45,52 @@ class _HomePageState extends State<HomePage> {
       body: Padding(
         padding: const EdgeInsets.all(15.0),
         child: (CatlogModel.items != null && CatlogModel.items.isNotEmpty)
-            ? ListView.builder(
-                itemCount: CatlogModel.items.length,
-                itemBuilder: (context, index) {
-                  return ItemWidget(
-                    item: CatlogModel.items[index],
+            ? GridView.builder(
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    mainAxisSpacing: 16,
+                    crossAxisSpacing: 16),
+                itemBuilder: ((context, index) {
+                  final item = CatlogModel.items[index];
+                  return Card(
+                    clipBehavior: Clip.antiAlias,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10)),
+                    child: GridTile(
+                      header: Container(
+                        child: Text(
+                          item.name,
+                          style: TextStyle(color: Colors.white),
+                        ),
+                        padding: EdgeInsets.all(12),
+                        decoration: BoxDecoration(color: Colors.deepPurple),
+                      ),
+                      child: Image.network(item.image),
+                      footer: Container(
+                        child: Text(
+                          item.name,
+                          style: TextStyle(color: Colors.white),
+                        ),
+                        padding: EdgeInsets.all(12),
+                        decoration: BoxDecoration(color: Colors.black),
+                      ),
+                    ),
                   );
-                },
+                }),
+                itemCount: CatlogModel.items.length,
               )
+            //list goes here
             : Center(child: CircularProgressIndicator()),
       ),
       drawer: MyDrawer(),
     );
   }
 }
-//4:33
+// ListView.builder(
+            //     itemCount: CatlogModel.items.length,
+            //     itemBuilder: (context, index) {
+            //       return ItemWidget(
+            //         item: CatlogModel.items[index],
+            //       );
+            //     },
+            //   )
