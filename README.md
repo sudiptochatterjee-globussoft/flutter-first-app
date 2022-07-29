@@ -1,6 +1,6 @@
 # flutter_application_one
 
-A new Flutter project.
+A demo project with introduction to flutter widgets, routing, json parsing etc.
 
 ## Getting Started
 
