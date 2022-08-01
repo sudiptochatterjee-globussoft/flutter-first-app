@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
+import 'package:flutter_application_one/utils/routes.dart';
 import 'package:flutter_application_one/widgets/themes.dart';
 import 'package:velocity_x/velocity_x.dart';
 
@@ -29,17 +30,19 @@ class HomeDetail extends StatelessWidget {
           children: [
             "\$${catalog.price}".text.bold.xl4.red800.make(),
             ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushNamed(context, MyRoutes.cartRoute);
+                    },
                     style: ButtonStyle(
                         backgroundColor:
                             MaterialStateProperty.all(MyTheme.darkBluishColor),
                         shape: MaterialStateProperty.all(
                           StadiumBorder(),
                         )),
-                    child: "Buy".text.make())
-                .wh(100, 50)
+                    child: "Add to cart".text.make())
+                .wh(120, 50)
           ],
-        ).p32(),
+        ).px32().py16(),
       ),
       body: SafeArea(
         bottom: false,
@@ -65,7 +68,7 @@ class HomeDetail extends StatelessWidget {
                         .make(),
                     catalog.desc.text.textStyle(context.captionStyle).xl.make(),
                     10.heightBox,
-                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+                    "Lorem ea dolor lorem sea et gubergren ipsum diam diam, tempor lorem sit diam gubergren sed, ipsum gubergren sanctus nonumy invidunt kasd, sea diam et dolor ea tempor lorem. Invidunt erat dolor ut sit ea kasd duo eos sea, dolor at takimata labore dolor, justo amet dolor et amet et."
                         .text
                         .textStyle(context.captionStyle)
                         .make()
