@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_one/utils/routes.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
+import 'package:velocity_x/velocity_x.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -34,7 +35,7 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Material(
       //want to show app bar then use scaffolf in place of appbar
-      color: Colors.white,
+      color: context.canvasColor,
       child: SingleChildScrollView(
         child: Form(
           key: _formKey,
@@ -99,7 +100,7 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                       Material(
                         borderRadius: BorderRadius.circular(changeBtn ? 50 : 8),
-                        color: Colors.deepPurple,
+                        color: context.theme.buttonColor,
                         child: InkWell(
                           //using inkwell for click and animation on container
                           onTap: () => moveToHome(context),

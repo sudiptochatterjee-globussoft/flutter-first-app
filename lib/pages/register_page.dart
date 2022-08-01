@@ -2,14 +2,22 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
+import 'package:velocity_x/velocity_x.dart';
 
-class RegisterPage extends StatelessWidget {
+class RegisterPage extends StatefulWidget {
   const RegisterPage({Key? key}) : super(key: key);
+
+  @override
+  State<RegisterPage> createState() => _RegisterPageState();
+}
+
+class _RegisterPageState extends State<RegisterPage> {
+  bool changeBtn = false;
 
   @override
   Widget build(BuildContext context) {
     return Material(
-      color: Colors.white,
+      color: context.canvasColor,
       child: SingleChildScrollView(
         child: Center(
           child: Column(
@@ -59,13 +67,32 @@ class RegisterPage extends StatelessWidget {
                     SizedBox(
                       height: 40.0,
                     ),
-                    ElevatedButton(
-                      onPressed: () {
-                        print("clicked login");
-                      },
-                      style: TextButton.styleFrom(minimumSize: Size(150, 40)),
-                      child: Text("Register"),
-                    )
+                    Material(
+                      borderRadius: BorderRadius.circular(changeBtn ? 50 : 8),
+                      color: context.theme.buttonColor,
+                      child: InkWell(
+                        //using inkwell for click and animation on container
+                        //onTap: () => moveToHome(context),
+                        child: AnimatedContainer(
+                          duration: Duration(seconds: 1),
+                          width: changeBtn ? 50 : 150,
+                          height: 50,
+                          alignment: Alignment.center,
+                          child: changeBtn
+                              ? Icon(
+                                  Icons.done,
+                                  color: Colors.white,
+                                )
+                              : Text(
+                                  "Register",
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 18),
+                                ),
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               )

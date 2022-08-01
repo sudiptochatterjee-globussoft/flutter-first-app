@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_one/pages/home_detail_page.dart';
-import 'package:flutter_application_one/utils/routes.dart';
-
 import '../../models/catalog.dart';
 import 'catalog_item.dart';
 
