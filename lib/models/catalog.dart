@@ -1,15 +1,12 @@
 class CatlogModel {
   static List<Item> items = [];
-  // = [
-  //   Item(
-  //       id: 0,
-  //       name: "iphone 12 pro",
-  //       desc: "Apple iphone 12 generation",
-  //       price: 999,
-  //       color: "w33505a",
-  //       image:
-  //           "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRISJ6msIu4AU9_M9ZnJVQVFmfuhfyJjEtbUm3ZK11_8IV9TV25-1uM5wHjiFNwKy99w0mR5Hk&usqp=CAc")
-  // ];
+
+//GetItemById
+  Item getById(int id) =>
+      items.firstWhere((element) => element.id == id, orElse: null);
+
+  //fget item by position
+  Item getByPos(int pos) => items[pos];
 }
 
 class Item {
