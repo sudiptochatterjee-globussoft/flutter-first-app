@@ -13,32 +13,37 @@ class CatalogItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return VxBox(
-      child: Row(
-        children: [
-          Hero(
-              tag: Key(catlog.id.toString()),
-              child: CatalogImage(image: catlog.image)),
-          Expanded(
-            child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.center,
+    var children2 = [
+      Hero(
+          tag: Key(catlog.id.toString()),
+          child: CatalogImage(image: catlog.image)),
+      Expanded(
+        child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              catlog.name.text.lg.color(context.accentColor).bold.make(),
+              catlog.desc.text.textStyle(context.captionStyle).make(),
+              10.heightBox,
+              ButtonBar(
+                alignment: MainAxisAlignment.spaceBetween,
+                buttonPadding: EdgeInsets.zero,
                 children: [
-                  catlog.name.text.lg.color(context.accentColor).bold.make(),
-                  catlog.desc.text.textStyle(context.captionStyle).make(),
-                  10.heightBox,
-                  ButtonBar(
-                    alignment: MainAxisAlignment.spaceBetween,
-                    buttonPadding: EdgeInsets.zero,
-                    children: [
-                      "\$${catlog.price}".text.bold.xl.make(),
-                      AddToCart(catlog: catlog)
-                    ],
-                  ).pOnly(right: 8.0)
-                ]),
-          )
-        ],
+                  "\$${catlog.price}".text.bold.xl.make(),
+                  AddToCart(catlog: catlog)
+                ],
+              ).pOnly(right: 8.0)
+            ]).p(context.isMobile ? 0 : 16),
       ),
+    ];
+    return VxBox(
+      child: context.isMobile
+          ? Row(
+              children: children2,
+            )
+          : Column(
+              children: children2,
+            ),
     ).color(context.cardColor).rounded.square(150).make().py16();
   }
 }
